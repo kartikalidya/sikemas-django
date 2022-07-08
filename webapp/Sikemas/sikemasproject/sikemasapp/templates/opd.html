@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>OPD</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/1.css' %}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-image: url("/static/img/bg1.png");
+        background-repeat: repeat;
+      }
+      .kotak {
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+        padding: 70px 85px;
+        width: 500px;
+
+        background-color: rgba(17, 17, 16, 0.75);
+        box-shadow: 0 0 10px rgba(25, 184, 91, 0.3);
+      }
+
+      * {
+        text-align: center;
+      }
+      h1 {
+        margin-top: 10px;
+        font-family: Arial;
+        font-weight: bolder;
+        font-size: 80px;
+        color: rgb(0, 0, 92);
+      }
+
+      #subjudul {
+        margin-top: -30px;
+        font-size: 40px;
+        color: rgb(0, 0, 92);
+      }
+
+      h4 {
+        font-size: 20px;
+        color: skyblue;
+      }
+
+      button[name="kembali"] {
+        float: left;
+        margin-right: 20px;
+        margin-left: -50px;
+        font-family: sans-serif;
+        text-align: center;
+        font-size: 15px;
+        background: maroon;
+        color: white;
+        border: white 3px solid;
+        border-radius: 10px;
+        padding: 12px 20px;
+        margin-top: 10px;
+      }
+      .pilih_opd {
+        background-color: #4caf50;
+        color: white;
+        padding: 18px 125px;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 18px 110px;
+        text-decoration: none;
+        display: block;
+        font-size: 12px;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown:hover .pilih_opd {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="judul">
+      <h1>SIKEMAS</h1>
+      <p id="subjudul">(Sistem Informasi Kepuasan Masyarakat)</p>
+    </div>
+    <br />
+    <br />
+    <div class="kotak">
+      <h4>Silahkan pilih OPD yang ingin anda berikan penilaian:</h4>
+
+    <div class="dropdown">
+        <button class="pilih_opd">Pilih OPD</button>
+        {% for opd in opds %}
+        <div class="dropdown-content">
+            <a href="{% url 'layanan' opd_id=opd.opd_id peopleid=id %}">{{ opd.opd_name }}</a>
+        {% endfor %}
+        </div>
+    </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <a href="/"><button name="kembali">Kembali</button></a>
+      
+    </div>
+  </body>
+</html>

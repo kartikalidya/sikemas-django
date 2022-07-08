@@ -1,0 +1,45 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+<body>
+<div class="tabel">
+<h1>Daftar Mayarakat yang Mengisi Kuesioner</h1>
+	<br>
+    <center>
+    <table border="1" class="table1" >
+        <tr>
+   <!-- Specify fields to be displayed -->
+   <tr>
+   <th>  </th>
+   <th> EMAIL </th>
+   <th> NAMA </th>
+   <th> JENIS KELAMIN </th>
+   <th> USIA </th>
+   <th> PEKERJAAN </th>
+   <th> PENDIDIKAN TERAKHIR </th>
+   <th> SERVICE ID </th>
+   </tr>
+   
+   <div class="main">
+<tr>
+   {% for data in dataset %}
+  <td> <li> </li> </td>  
+  <td> {{ data.email }}<br/> </td>
+  <td> {{ data.name }} <br/> </td>
+  <td> {{ data.gender }}<br/> </td>
+  <td> {{ data.age }}<br/> </td>
+  <td> {{ data.job }}<br/> </td>
+  <td> {{ data.last_education }}<br/> </td>
+  <td> {{ data.service_id }}<br/> </td>
+   </tr> 
+
+ {% endfor %}
+
+</table>
+
+</div>
+</center>
+</head>
+</body>
+</html>

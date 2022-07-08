@@ -1,0 +1,112 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Tampilkan OPD</title>  
+     {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/1.css' %}"/>  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            body{
+                background-image: url('/static/img/bg1.png');
+                background-repeat: repeat;
+            }
+            h1 {
+                 font-family: Arial;
+                 color: navy;
+                 font-size: 50px;
+                 text-align: center;
+                 margin-top: 10px;
+                 font-family: Arial;
+                 font-weight:bolder;
+                 font-size: 80px;
+                 color: rgb(0, 0, 92)
+                 
+             }
+             
+             #subjudul{
+             margin-top: -20px;
+             font-size: 40px;
+             color: rgb(0, 0, 92)
+            }
+
+             h3{
+                font-size: 25px;
+                color: skyblue;
+             }
+            input[type='text']{
+                width: 350px;
+                padding: 5px;
+            }
+            
+            table{
+                color: black;
+            }
+
+            .nav ul li:hover{
+                background: #35A9DB;
+            }
+
+            .warning {background-color: #ffee00f8;} /* Orange */
+            .warning:hover {background: #e6cf00;}
+
+            .danger {background-color: #f44336;} /* Red */
+            .danger:hover {background: #da190b;}
+
+            .info {background-color: #2196F3;} /* Blue */
+            .info:hover {background: #0b7dda;}
+
+            .success {background-color: #04AA6D;} /* Green */
+            .success:hover {background-color: #46a049;}
+
+        </style>
+</head>  
+<body>  
+
+    <center>
+    <div class="judul"> <h1>SIKEMAS</h1>
+        <p id="subjudul">(Sistem Informasi Kepuasan Masyarakat)</p>
+    </div>
+</center>
+<br>
+<br>
+
+<center>
+ <table border="1" cellpadding="10" >
+     <tr>
+        <div class="nav">
+
+    <tr>  
+        <th> OPD ID </th>
+        <th> OPD Name </th>
+        <th> OPD Province </th>
+        <th> OPD City </th>
+        <th> OPD Address </th>  
+        <th> Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for opd in opds %}  
+    <tr>  
+   <td> {{ opd.opd_id }}<br/> </td>
+   <td> {{ opd.opd_name }}<br/> </td>
+   <td> {{ opd.opd_province }}<br/> </td>
+   <td> {{ opd.opd_city }}<br/> </td>
+   <td> {{ opd.opd_address }}<br/> </td>    
+        <td>  
+            <a href="/edit/{{ opd.opd_id}}"><button class="btn warning">Edit OPD</button></a>  
+            <a href="/delete/{{ opd.opd_id }}" onclick="return confirm ('Are you sure, want to delete '+'{{opd.opd_name}}?')"> <button class='btn danger'>Delete OPD</button> </a>  
+            <a href="{% url 'show-services' opd_id=opd.opd_id %}"><button class="btn success">Show Layanan</button></a>
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+</center>
+<br>  
+<br>  
+<a href="add-opd"><button class="btn info">Add New OPD</button></a>  
+</body>  
+</html>  

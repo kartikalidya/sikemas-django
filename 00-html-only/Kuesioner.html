@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+            background-image: url('/static/img/bg1.png');
+            background-repeat: repeat;
+        }
+      * {
+        box-sizing: border-box;
+      }
+      .wrap-container {
+        width: 100%;
+        max-width: 1100px;
+        margin: auto;
+      }
+      .header {
+        color: rgb(18, 53, 105);
+      }
+      .header > h1 {
+        font-size: 50px;
+        line-height: 10px;
+      }
+      .wrap-questionare {
+        width: 100%;
+      }
+      .card-question {
+        width: 100%;
+        padding: 10px 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        background: rgb(216, 216, 216);
+        box-shadow: 0px 0px 5px 1px rgb(214, 214, 214);
+      }
+      .card-question:last-child {
+        margin-bottom: 20px;
+      }
+      .question-choice {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      .question-choice > label {
+        display: flex;
+        align-items: center;
+      }
+      .text-question {
+        word-break: break-all;
+      }
+      form > button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        background: #0b9174;
+        color: white;
+        outline: none;
+        border: none;
+        border-radius: 10px;
+      }
+      form > button:hover,
+      form > button:active {
+        background: #086450;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap-container">
+      <div class="header">
+        <h1>SIKEMAS</h1>
+        <span>Sitem Informasi Kepuasan Pelanggan</span>
+      </div>
+      <div class="wrap-questionare">
+        <h4>{{ people.service.service_name }}</h4>
+        <span>Isilah Kuesioner berikut !</span>
+        <form action="" method="post" >
+            {% csrf_token %}
+            {% for question in questions %}
+          <div class="card-question">
+            <div class="text-question">{{question.question_text}}</div>
+            <div class="question-choice">
+              <label for=""
+                ><input type="radio" name="{{question.questionnaire_id}}" value="1"/>{{ question.choice_one }}</label
+              >
+              <label for=""
+                ><input type="radio" name="{{question.questionnaire_id}}" value="2"/>{{ question.choice_two }}</label
+              >
+              <label for=""
+                ><input type="radio" name="{{question.questionnaire_id}}" value="3"/>{{ question.choice_three }}</label
+              >
+              <label for=""
+                ><input type="radio" name="{{question.questionnaire_id}}" value="4"/>{{ question.choice_four }}</label
+              >
+              
+            </div>
+          </div>
+          {% endfor %}
+          <button type="submit">Send My Answer</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

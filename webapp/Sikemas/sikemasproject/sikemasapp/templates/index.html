@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HOME</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            body{
+                background-image: url('/static/img/bg1.png');
+                background-repeat: repeat;
+            }
+            h1 {
+                 font-family: Arial;
+                 color: navy;
+                 font-size: 50px;
+                 text-align: center;
+                 margin-top: 10px;
+                 font-family: Arial;
+                 font-weight:bolder;
+                 font-size: 80px;
+                 color: rgb(0, 0, 92)
+                 
+             }
+             
+             #subjudul{
+             margin-top: -70px;
+             font-size: 40px;
+             color: rgb(0, 0, 92)
+            }
+
+             h3{
+                font-size: 25px;
+                color: skyblue;
+             }
+            input[type='text']{
+                width: 350px;
+                padding: 5px;
+            }
+                .kotak{
+                position: absolute;
+                left: 50%;
+                top: 60%;
+                transform: translate(-50%,-50%);
+                padding: 50px 85px;
+                width: 500px;
+
+                background-color:rgba(17, 7, 1, 0.75);
+                box-shadow: 0 0 10px rgba(25, 184, 91, 0.3);}
+            table{
+                color: aliceblue;
+            }
+            button[name=next]{
+                float:right;
+                margin-right: -50px;
+                font-family: sans-serif;
+                text-align: center;
+                font-size: 15px;
+                background: green;
+                color: white;
+                border: white 3px solid;
+                border-radius: 10px;
+                padding: 12px 20px;
+                margin-top: 10px;
+            }
+            button[name=staff]{
+                float:left;
+                margin-right: 20px;
+                margin-left: 350px;
+                font-family: sans-serif;
+                text-align: center;
+                font-size: 15px;
+                background: navy;
+                color: white;
+                border: white 3px solid;
+                border-radius: 10px;
+                padding: 12px 20px;
+                margin-top: 400px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <center>
+            <div class="judul"> <h1>SIKEMAS</h1>
+                <p id="subjudul">(Sistem Informasi Kepuasan Masyarakat)</p>
+            </div>
+        <br>
+        <br>
+        <form action="{% url 'opd' %}" method="POST">
+            {% csrf_token %}
+        <div class="kotak">
+        <h3>
+            Mohon Isi Data Diri Anda:
+        </h3> 
+            <table> 
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td><input type="text" name="email"><br></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td>Name</td>
+                    <td>:</td>
+                    <td><input type="text" name="name"><br></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                                <td>:</td>
+                                <td><div class='radio-toolbar'><input type="radio" name="gender" value='Male'/> Male
+                                    <input type="radio" name="gender" value= 'Female'/> Female<br /></div></td>
+                            
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td>:</td>
+                    <td> <input type="number" name="age"> years old<br></td>
+                </tr>
+                <tr>
+                    <td>Job</td>
+                    <td>:</td>
+                    <td><input type="text" name="job"><br></td>
+                </tr>
+                <tr>
+                    <td>Last Education</td>
+                    <td>:</td>
+                    <td><input type="text" name="last_education"><br></td>
+                </tr>
+                <br>
+            </center>
+            </table>
+            <button type='submit' name="next">Next</button>
+            
+        </div>
+    </form>
+    <a href="/login/"><button name="staff">Sign in as Staff</button></a>
+    </body>
+</html>

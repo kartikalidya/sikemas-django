@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>    
+        <meta charset= "utf-8">
+        <title>Profile</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/styleprofile.css">
+    </head>
+
+    <body>
+        <div class="nav">
+            <ul>
+        
+        <li><a href="#">Profile</a></li>
+        <li><a href="/show-opd">Edit OPD</a></li>
+        <li><a href="/people">Data Masyarakat</a></li>
+        <li><a href="/registrasi">Registrasi Akun Staff</a></li>
+        
+        </ul>
+        </div>
+
+        <h1>SIKEMAS</h1> <br><br>
+        <p id="subjudul">Sistem Informasi Kepuasan Masyarakat</p>
+        <br>
+        <br>
+        <form action="{% url 'profile' %}" method="POST">
+            {% csrf_token %}
+            
+        <div class="container">
+            <!-- Modal -->
+                <br>
+                        <center>
+                        <div class=>
+                        <img src="/static/img/{{ staff.profile }}" class="avatar img-circle img-thumbnail" alt="avatar">
+                        <br>
+                        </div>
+                        <h3 class="media-heading">{{ staff.name }}</h3>
+                        </center>
+                            <hr>
+                        
+                        <div class="datadiri">
+                        <center>
+                            <p><strong>My Profile</strong><br></p>
+                            <p> Email           :  {{ staff.email }}</p>
+                            <p> Mobile number   : {{ staff.mobile }} </p>
+                        <br>
+                        </center>
+
+                        </div>
+                        <div class="modal-footer">
+                            <center>
+                                <button name="profile"><a href="/update-profile/">Update My Profile</button></a>
+                                <!-- <a href="/update-profile/"><button name="profile">Update My Profile</button></a> -->
+                            </center>
+                        </div>
+                        
+                    </div>
+                </form>
+               
+    </body>
+
+</html>

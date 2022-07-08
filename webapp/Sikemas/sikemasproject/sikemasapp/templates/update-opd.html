@@ -1,0 +1,127 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="/static/css/1.css">  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HOME</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            body{
+                background-image: url('/static/img/bg1.png');
+                background-repeat: repeat;
+            }
+            h1 {
+                 font-family: Arial;
+                 color: navy;
+                 font-size: 50px;
+                 text-align: center;
+                 margin-top: 10px;
+                 font-family: Arial;
+                 font-weight:bolder;
+                 font-size: 80px;
+                 color: rgb(0, 0, 92)
+                 
+             }
+             
+             #subjudul{
+             margin-top: -20px;
+             font-size: 40px;
+             color: rgb(0, 0, 92)
+            }
+
+             h3{
+                font-size: 25px;
+                color: rgb(0, 110, 153);
+             }
+            input[type='text']{
+                width: 350px;
+                padding: 5px;
+            }
+            
+            table{
+                color: aliceblue;
+            }
+
+            .kotak{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                padding: 50px 85px;
+                width: 500px;
+
+                background-color:rgba(17, 7, 1, 0.75);
+                box-shadow: 0 0 10px rgba(25, 184, 91, 0.3);}
+                *{text-align: center;}
+        
+            .success {background-color: #04AA6D;} /* Green */
+            .success:hover {background-color: #46a049;}
+
+            button{
+                font-family: sans-serif;
+                font-size: 15px;
+                background: green;
+                color: white;
+                border: white 3px solid;
+                border-radius: 10px;
+                padding: 10px 15px;
+                margin-top: 10px;}
+
+        </style>
+    
+</head>  
+<body>  
+<form method="POST" class="post-form" action="/update/{{opd.opd_id}}">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Update Details</h3>  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">OPD ID:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="opd_id" id="id_opd_id" required maxlength="20" value="{{ opd.opd_id}}"/>  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">OPD Name:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="opd_name" id="id_opd_name" required maxlength="100" value="{{ opd.opd_name }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">OPD Province:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="opd_province" id="id_opd_province" required maxlength="254" value="{{ opd.opd_province }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">OPD City:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="opd_city" id="id_opd_city" required maxlength="15" value="{{ opd.opd_city}}" />  
+    </div>  
+</div>  
+<div class="form-group row">  
+<label class="col-sm-2 col-form-label">OPD Address</Address>:</label>  
+<div class="col-sm-4">  
+    <input type="text" name="opd_address" id="id_opd_address" required maxlength="15" value="{{ opd.opd_address }}" />  
+</div> 
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <a href="/show-opd"><button type="submit" class="btn btn-success">Update</button>  </a>
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  

@@ -1,0 +1,125 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Tambahkan Service</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="/static/css/1.css"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HOME</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            body{
+                background-image: url('/static/img/bg1.png');
+                background-repeat: repeat;
+            }
+            h1 {
+                 font-family: Arial;
+                 color: navy;
+                 font-size: 50px;
+                 text-align: center;
+                 margin-top: 10px;
+                 font-family: Arial;
+                 font-weight:bolder;
+                 font-size: 80px;
+                 color: rgb(0, 0, 92)
+                 
+             }
+             
+             #subjudul{
+             margin-top: -20px;
+             font-size: 40px;
+             color: rgb(0, 0, 92)
+            }
+
+             h3{
+                font-size: 25px;
+                color: rgb(0, 110, 153);
+             }
+             h4{
+                font-size: 15px;
+                color: rgb(0, 0, 0);
+             }
+            input[type='text']{
+                width: 350px;
+                padding: 5px;
+            }
+            
+            table{
+                color: aliceblue;
+            }
+
+            .kotak{
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-50%);
+                padding: 50px 85px;
+                width: 500px;
+
+                background-color:rgba(17, 7, 1, 0.75);
+                box-shadow: 0 0 10px rgba(25, 184, 91, 0.3);}
+                *{text-align: center;}
+        
+            .success {background-color: #04AA6D;} /* Green */
+            .success:hover {background-color: #46a049;}
+
+            button{
+                font-family: sans-serif;
+                font-size: 15px;
+                background: green;
+                color: white;
+                border: white 3px solid;
+                border-radius: 10px;
+                padding: 10px 15px;
+                margin-top: 10px;}
+
+        </style>
+</head>  
+<body>  
+
+    <center>
+        <div class="judul"> <h1>SIKEMAS</h1>
+            <p id="subjudul">(Sistem Informasi Kepuasan Masyarakat)</p>
+        </div>
+    </center>
+    <br>
+    <br>
+
+  <h4> Add new layanan from OPD {{opd.opd_name}} </h4>
+  
+  <hr/>
+  <center>
+  <form method="POST"> 
+      {% csrf_token %}
+        <tr>
+            <div class="form-group row"></div>
+            <td> Service ID:</td>
+            <div class="col-sm-4">  
+            <td> <input type="text" name="service_id"> </td> </div> 
+        </tr>
+        <tr>
+            <div class="form-group row"></div>
+            <td> Service Name:</td>
+            <div class="col-sm-4">  
+            <td> <input type="text" name="service_name"> </td> </div> 
+        </tr>
+        <tr>
+            <div class="form-group row"></div>
+            <td> ID OPD:</td>
+            <div class="col-sm-4">  
+            <td> <input type="text" value="{{opd.opd_id}}" readonly name="opds_id"> </td> </div> 
+        </tr>
+        <td> <button type="submit"> Add Service</button></td>
+        <td> 
+            {% if messages %}
+            {% for mess in messages %}
+            {{mess}}
+            {% endfor %}
+            {% endif %}
+        </td> 
+</table> </center> 
+</form>
+</body> 
+</html> 

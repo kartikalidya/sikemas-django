@@ -1,0 +1,110 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Tampilkan Layanan</title>  
+     {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/1.css' %}"/>  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            body{
+                background-image: url('/static/img/bg1.png');
+                background-repeat: repeat;
+            }
+            h1 {
+                 font-family: Arial;
+                 color: navy;
+                 font-size: 50px;
+                 text-align: center;
+                 margin-top: 10px;
+                 font-family: Arial;
+                 font-weight:bolder;
+                 font-size: 80px;
+                 color: rgb(0, 0, 92)
+                 
+             }
+             
+             #subjudul{
+             margin-top: -20px;
+             font-size: 40px;
+             color: rgb(0, 0, 92)
+            }
+
+             h3{
+                font-size: 25px;
+                color: skyblue;
+             }
+            input[type='text']{
+                width: 350px;
+                padding: 5px;
+            }
+            
+            table{
+                color: black;
+            }
+
+            .nav ul li:hover{
+                background: #35A9DB;
+            }
+
+            .warning {background-color: #ffee00f8;} /* Orange */
+            .warning:hover {background: #e6cf00;}
+
+            .danger {background-color: #f44336;} /* Red */
+            .danger:hover {background: #da190b;}
+
+            .info {background-color: #2196F3;
+                margin-left: 470px;} /* Blue */
+            .info:hover {background: #0b7dda;}
+            
+            .success {background-color: #04AA6D;} /* Green */
+            .success:hover {background-color: #46a049;}
+
+        </style>
+</head>  
+<body>  
+
+    <center>
+    <div class="judul"> <h1>SIKEMAS</h1>
+        <p id="subjudul">(Sistem Informasi Kepuasan Masyarakat)</p>
+    </div>
+</center>
+<br>
+<br>
+
+<center>
+ <table border="1" cellpadding="10" >
+     <tr>
+        <div class="nav">
+           <b>Layanan dari OPD {{opd.opd_name}} </b> 
+            <a href="{% url 'show-opd'%}"></a>
+    <tr>  
+        <th> Service ID </th>
+        <th> Service Name </th>
+        <th> Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+    <tr>  
+        <div class="main">
+            {% for opd in opd.opd.all %}
+   <td> {{ opd.service_id }}<br/> </td>
+   <td> {{ opd.service_name }}<br/> </td> 
+        <td>  
+        </div>
+            <a href="/delete-service/{{ opd.service_id }}" onclick="return confirm ('Are you sure, want to delete '+'{{opd.service_name}}?')"> <button class='btn danger'>Delete Layanan</button> </a> 
+        </td>  
+    </tr>  
+    </tbody>  
+    
+
+    {% endfor  %}
+</table>  
+</center>
+<br>  
+<br>  
+<a href="{% url 'add-service' opd_id=opd.opd_id %}"><button class="btn info">Add New Service</button></a> 
+</body>  
+</html>  

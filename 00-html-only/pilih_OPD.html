@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset= "utf-8">
+        <title>Sistem Informasi Kepuasan Masyarakat</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+
+            body{
+                background-image: url(bg1.png);
+                background-repeat: repeat;
+            }
+            .kotak{
+                position: absolute;
+                left: 50%;
+                top: 60%;
+                transform: translate(-50%,-50%);
+                padding: 50px 85px;
+                width: 500px;
+
+                background-color:rgba(17, 17, 16, 0.75);
+                box-shadow: 0 0 10px rgba(25, 184, 91, 0.3);}
+
+
+            *{text-align: center;}
+             h1 {
+                margin-top: 10px;
+                font-family: Arial;
+                font-weight:bolder;
+                font-size: 80px;
+                color: rgb(0, 0, 92)
+             }
+
+             #subjudul{
+             margin-top: -70px;
+             font-size: 40px;
+             color: rgb(0, 0, 92)
+            }
+
+    
+             h4 {
+            font-size: 25px;
+            color: skyblue;
+             }
+             input[type=submit]{
+                float:right;
+                margin-right: -50px;
+                font-family: sans-serif;
+                text-align: center;
+                font-size: 15px;
+                background: green;
+                color: white;
+                border: white 3px solid;
+                border-radius: 10px;
+                padding: 12px 20px;
+                margin-top: 10px;
+            }
+            button{
+                float:left;
+                margin-right: 20px;
+                margin-left: -50px;
+                font-family: sans-serif;
+                text-align: center;
+                font-size: 15px;
+                background: maroon;
+                color: white;
+                border: white 3px solid;
+                border-radius: 10px;
+                padding: 12px 20px;
+                margin-top: 10px;
+                 }  
+
+        </style>
+    </head>
+    <body>
+        
+        <div class="judul"> <h1>SIKEMAS</h1>
+            <p id="subjudul">(Sistem Informasi Kepuasan Masyarakat)</p>
+            </div>
+        <br>
+        <br>
+        <div class= "kotak">
+        <h4>
+            Silahkan pilih OPD yang ingin anda berikan penilaian:
+        </h4> 
+
+            <div class="custom-select">
+                <select name="opd" id="opd">
+                    <option value="opd0"> Pilih OPD</option>
+                    <option value="opd1"> Badan Kepegawaian dan Pengembangan Sumber Daya Manusia</option>
+                    <option value="opd2"> Dinas Kependudukan dan Catatan Sipil</option>
+                    <option value="opd3"> Dinas kesehatan</option>
+                    <option value="opd4"> Ketahanan Pangan dan Pertanian</option>
+                    <option value="opd5"> Ketenagakerjaan dan Perindustrian</option>
+                </select>
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button name="kembali">Kembali</button>
+            <input type="Submit" value="Berikutnya">
+        </div>
+
+    </body>
+</html>
