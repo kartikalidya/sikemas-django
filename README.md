@@ -1,7 +1,7 @@
 # 21-01-Sikemas
 Repository ini digunakan untuk menyimpan artefak proyek mata kuliah 12S3101 Pemrograman dan Pengujian Aplikasi Web di Institut Teknologi Del. Topik: Sistem Informasi Kepuasan Masyarakat
 
-#Sikemas
+# Sikemas
 SIKEMAS adalah aplikasi untuk melakukan survei kepuasan masyarakat kepada pengguna layanan dengan mengukur kepuasan masyarakat pengguna layanan. 
 Adapun tujuan dibangunnya Sistem Informasi Survei Kepuasan Masyarakat adalah:
 1.	Mendorong partisipasi masyarakat sebagai pengguna layanan dalam menilai kinerja penyelenggara pelayanan.
@@ -49,17 +49,3 @@ Langkah-langkah instalasi django framework yaitu:
 
 - Selanjutnya, jalankan django framework internal web server dengan menjalankan perintah berikut pada command line
 		py manage.py runserver
-
-
-
-
-Read the [detailed documentation](/docs/README.md) for futher information.
-
-Find the [codebase here](/webapp).
-
-
-## Contributors
-+ 12S19006	Cintya Yossy Silvana Nainggolan
-+ 12S19007	Delpia Yesica Marpaung
-+ 12S19014	Kartika Lidya Rotua Sianipar 
-+ 12S19022	Nico Julyonethree Rajagukguk
